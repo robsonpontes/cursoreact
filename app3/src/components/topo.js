@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
-import { blue } from 'ansi-colors';
 
 class Topo extends Component {
   render() {
