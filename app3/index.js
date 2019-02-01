@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 
 import Topo from './src/components/topo';
+import Escolha from './src/components/escolha';
 import Icone from './src/components/icone';
 
 const styles = StyleSheet.create({
@@ -79,10 +80,11 @@ class app3 extends Component {
         return (
             <View>
                 <Topo></Topo>
+                <Escolha ></Escolha>
                 <View style={styles.painelAcoes}>
 
                     <View style={styles.btnEscolha}>
-                        <Button title="pedra" onPress={() => { this.jokenpo('pedra'); }} />
+                        <Button title="pedra" onPress={() => { this.state.jokenpo('pedra'); }} />
                     </View>
 
                     <View style={styles.btnEscolha}>
