@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
 class app3 extends Component {
     constructor(props) {
         super(props);
-
+        this.jokenpo = this.jokenpo.bind(this);
         this.state = {
             escolhaUsuario: '',
             escolhaComputador: '',
@@ -80,8 +80,15 @@ class app3 extends Component {
         return (
             <View>
                 <Topo></Topo>
-                <Escolha onPress={() => { this.jokenpo('pedra') }}></Escolha>
-               
+                <Escolha jokenpo={this.jokenpo}></Escolha>
+
+
+                <Resultado {...this.state}/>
+
+                
+{/*   
+
+
                 <View style={styles.painelAcoes}>                    
                     <View style={styles.btnEscolha}>
                         <Button title="pedra" onPress={() => { this.jokenpo('pedra'); }} />
@@ -99,7 +106,6 @@ class app3 extends Component {
 
                 <Resultado resultado={this.state.resultado} escolhaComputador={this.state.escolhaComputador}  escolhaUsuario={this.state.escolhaUsuario}/>
 
-{/*   
                 <View style={styles.palco}>
                     <Text style={styles.txtResultado}>{this.state.resultado}</Text>
 

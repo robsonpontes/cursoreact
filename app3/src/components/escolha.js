@@ -7,7 +7,7 @@ class Escolha extends Component {
 
         this.state = props.state;
     }
-    
+    /*
     jokenpo(escolhaUsuario) {
         var numAleatorio = Math.floor(Math.random() * 3);
 
@@ -33,21 +33,21 @@ class Escolha extends Component {
         }
 
         this.setState({ escolhaUsuario: escolhaUsuario, escolhaComputador: escolhaComputador, resultado: resultado });    
-    }
+    }*/
 
   render() {
     return (
         <View style={styles.painelAcoes}>
             <View style={styles.btnEscolha}>
-                <Button title="pedra" onPress={this.props.onPress}  />
+                <Button title="pedra" onPress={() => this.props.jokenpo('pedra')}  />
             </View>
 
             <View style={styles.btnEscolha}>
-                <Button title="papel" onPress={() => this.jokenpo('papel') } />
+                <Button title="papel" onPress={() => this.props.jokenpo('papel')} />
             </View>
 
             <View style={styles.btnEscolha}>
-                <Button title="tesoura" onPress={() => {this.setState({ escolhaUsuario: 'tesoura'}), this.props.onPress }} />
+                <Button title="tesoura" onPress={() => this.props.jokenpo('tesoura')} />
             </View>
 
         </View>
