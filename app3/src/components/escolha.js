@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { View, Button, StyleSheet } from 'react-native';
 
-class Topo extends Component {
+class Escolha extends Component {
+    constructor(props){
+        super(props);
 
+        this.state = props.state;
+    }
     
     jokenpo(escolhaUsuario) {
         var numAleatorio = Math.floor(Math.random() * 3);
@@ -28,23 +32,22 @@ class Topo extends Component {
             }
         }
 
-
-        this.setState({ escolhaUsuario: escolhaUsuario, escolhaComputador: escolhaComputador, resultado: resultado });
+        this.setState({ escolhaUsuario: escolhaUsuario, escolhaComputador: escolhaComputador, resultado: resultado });    
     }
 
   render() {
     return (
         <View style={styles.painelAcoes}>
             <View style={styles.btnEscolha}>
-                <Button title="pedra" onPress={() => {this.props.jokenpo(); }} />
+                <Button title="pedra" onPress={this.props.onPress}  />
             </View>
 
             <View style={styles.btnEscolha}>
-                <Button title="papel" onPress={() => { this.jokenpo('papel'); }} />
+                <Button title="papel" onPress={() => this.jokenpo('papel') } />
             </View>
 
             <View style={styles.btnEscolha}>
-                <Button title="tesoura" onPress={() => { this.jokenpo('tesoura'); }} />
+                <Button title="tesoura" onPress={() => {this.setState({ escolhaUsuario: 'tesoura'}), this.props.onPress }} />
             </View>
 
         </View>
@@ -64,4 +67,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Topo;
+export default Escolha;

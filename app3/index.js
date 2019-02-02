@@ -14,7 +14,8 @@ import {
 
 import Topo from './src/components/topo';
 import Escolha from './src/components/escolha';
-import Icone from './src/components/icone';
+import Resultado from './src/components/resultado';
+
 
 const styles = StyleSheet.create({
     btnEscolha: {
@@ -72,7 +73,6 @@ class app3 extends Component {
             }
         }
 
-
         this.setState({ escolhaUsuario: escolhaUsuario, escolhaComputador: escolhaComputador, resultado: resultado });
     }
 
@@ -80,11 +80,11 @@ class app3 extends Component {
         return (
             <View>
                 <Topo></Topo>
-                <Escolha ></Escolha>
-                <View style={styles.painelAcoes}>
-
+                <Escolha onPress={() => { this.jokenpo('pedra') }}></Escolha>
+               
+                <View style={styles.painelAcoes}>                    
                     <View style={styles.btnEscolha}>
-                        <Button title="pedra" onPress={() => { this.state.jokenpo('pedra'); }} />
+                        <Button title="pedra" onPress={() => { this.jokenpo('pedra'); }} />
                     </View>
 
                     <View style={styles.btnEscolha}>
@@ -97,6 +97,9 @@ class app3 extends Component {
 
                 </View>
 
+                <Resultado resultado={this.state.resultado} escolhaComputador={this.state.escolhaComputador}  escolhaUsuario={this.state.escolhaUsuario}/>
+
+{/*   
                 <View style={styles.palco}>
                     <Text style={styles.txtResultado}>{this.state.resultado}</Text>
 
@@ -105,7 +108,7 @@ class app3 extends Component {
                     <Icone escolha={this.state.escolhaUsuario} jogador='Você' />
 
                 </View>
-                {/*               
+                            
                 <Text>Escolha do Computador {this.state.escolhaComputador}</Text>
                 <Text>Escolha do usuário: {this.state.escolhaUsuario}</Text>
                 <Text>Resultado: {this.state.resultado}</Text>
