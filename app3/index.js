@@ -84,11 +84,8 @@ class app3 extends Component {
 
 
                 <Resultado {...this.state}/>
-
                 
 {/*   
-
-
                 <View style={styles.painelAcoes}>                    
                     <View style={styles.btnEscolha}>
                         <Button title="pedra" onPress={() => { this.jokenpo('pedra'); }} />
