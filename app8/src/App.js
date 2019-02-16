@@ -1,6 +1,6 @@
 import React from 'react';
-import FormLogin from './components/FormLogin';
+import Routes from './Routes'
 
 export default props => (
-    <FormLogin/>
+    <Routes />
 );
